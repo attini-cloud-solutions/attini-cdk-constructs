@@ -19,11 +19,11 @@ export class DeploymentPlan extends Construct {
     if (props.states != null) {
       states = this.createSimplePlan(props.states);
     } else if (props.definition) {
-      states =new StateGraph(props.definition.startState, 'not important').toGraphJson();
+      states = new StateGraph(props.definition.startState, 'not important').toGraphJson();
     }
 
 
-    new CfnResource(this, 'DeploymentPlan', {
+    new CfnResource(this, id, {
       type: 'Attini::Deploy::DeploymentPlan',
       properties: {
         DeploymentPlan: states,
@@ -31,7 +31,7 @@ export class DeploymentPlan extends Construct {
     });
   }
 
-  private createSimplePlan( states:Array<State>) {
+  private createSimplePlan(states: Array<State>) {
     return states.map(value => {
       let json = <any>value.toStateJson();
       delete json.End;
@@ -42,4 +42,66 @@ export class DeploymentPlan extends Construct {
 
   }
 
+}
+
+export interface AttiniRunnerProps {
+  readonly taskDefinitionArn?: string;
+  readonly containerName?: string;
+  readonly ecsCluster?: string;
+  readonly roleArn?: string;
+  readonly image?: string;
+  readonly runnerConfiguration?: RunnerConfiguration;
+  readonly awsVpcConfiguration?: AwsVpcConfiguration;
+  readonly startup?: Startup;
+}
+
+export interface RunnerConfiguration {
+  readonly maxConcurrentJobs?: number;
+  readonly idleTimeToLive?: number;
+  readonly jobTimeout?: number;
+  readonly logLevel?: string;
+}
+
+export interface AwsVpcConfiguration {
+  subnets?: [string];
+  securityGroups?: [string];
+  assignPublicIp?: string;
+}
+
+export interface Startup {
+  commands?: [string];
+  commandsTimeout?: number;
+}
+
+export class AttiniRunner extends Construct {
+
+  readonly runnerName: string;
+
+  constructor(scope: Construct, id: string, props: AttiniRunnerProps) {
+    super(scope, id);
+    this.runnerName = id;
+    let copy: any = { ...props };
+    if (props.awsVpcConfiguration?.subnets) {
+      copy.awsVpcConfiguration.subnets = props.awsVpcConfiguration.subnets.join(',');
+    }
+    if (props.awsVpcConfiguration?.securityGroups) {
+      copy.securityGroups.securityGroups = props.awsVpcConfiguration.securityGroups.join(',');
+    }
+
+    new CfnResource(this, id, {
+      type: 'Attini::Deploy::Runner',
+      properties: this.fixCase(copy),
+    });
+  }
+
+  private fixCase(props: any): object {
+    let copy: any = {};
+    Object.entries(props).forEach(([key, value]) => {
+      if (typeof value === 'object' && !(value instanceof Array)) {
+        value = this.fixCase(value);
+      }
+      copy[key.charAt(0).toUpperCase() + key.slice(1)] = value;
+    });
+    return copy;
+  }
 }
