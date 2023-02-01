@@ -6,6 +6,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: 'main',
   name: 'attini-cdk-constructs',
   repositoryUrl: 'git@github.com:attini-cloud-solutions/attini-cdk-constructs.git',
+  releaseToNpm: false,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
