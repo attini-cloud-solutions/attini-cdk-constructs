@@ -1,23 +1,7 @@
 import { CfnResource } from 'aws-cdk-lib';
-import { Chain, CustomState, State, StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, State, StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 
-
-export class AttiniMerge extends CustomState {
-
-
-  constructor(scope: Construct, id: string) {
-    super(scope, id, { stateJson: [] });
-  }
-
-  toStateJson(): object {
-    return {
-      Type: 'AttiniMerge',
-      ...this.renderNextEnd(),
-    };
-  }
-
-}
 
 export interface DeploymentPlanProps {
   readonly states?: Array<State>;
