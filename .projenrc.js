@@ -27,6 +27,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     githubRepo: 'github.com/carlostrand/test',
     gitUserEmail: 'carl.ostrand@gmail.com',
     gitUserName: 'carlostrand',
+    githubUseSsh: fasle
   },
 
   // deps: [],                /* Runtime dependencies of this module. */
