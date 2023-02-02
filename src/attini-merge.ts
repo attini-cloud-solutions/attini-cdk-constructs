@@ -3,7 +3,7 @@ import { AttiniState } from './attini-state';
 
 export class AttiniMerge extends AttiniState {
 
-  type: string = 'AttiniMerge';
+  type: string = 'AttiniMergeOutput';
   constructor(scope: Construct, id: string) {
     super(scope, id);
   }
