@@ -30,6 +30,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     packageName: 'attini_cdk_lib',
     moduleName: 'github.com/attini-cloud-solutions/attini-cdk-go',
     githubRepo: 'github.com/attini-cloud-solutions/attini-cdk-go.git',
+
     githubTokenSecret: 'GO_GITHUB_TOKEN',
 
     //'github.com/attini-cloud-solutions/attini-cdk-go/attinicdk',
