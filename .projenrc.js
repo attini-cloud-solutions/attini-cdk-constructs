@@ -21,11 +21,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   //   distName: 'attini-cdk-lib',
   //   module: 'attini_cdk',
   // },
-  // publishToMaven: {
-  //   mavenGroupId: 'attini.cdk',
-  //   mavenArtifactId: 'attini-cdk-lib',
-  //   javaPackage: 'attini.cdk',
-  // },
+  publishToMaven: {
+    mavenGroupId: 'attini.cdk',
+    mavenArtifactId: 'attini-cdk-lib',
+    javaPackage: 'attini.cdk',
+  },
   publishToGo: {
     packageName: 'attini_cdk_lib',
     moduleName: 'attini_cdk',

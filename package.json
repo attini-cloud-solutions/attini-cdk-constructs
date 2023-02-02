@@ -17,6 +17,7 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:go": "npx projen package:go",
+    "package:java": "npx projen package:java",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
@@ -117,6 +118,13 @@
   "jsii": {
     "outdir": "dist",
     "targets": {
+      "java": {
+        "package": "attini.cdk",
+        "maven": {
+          "groupId": "attini.cdk",
+          "artifactId": "attini-cdk-lib"
+        }
+      },
       "go": {
         "moduleName": "attini_cdk",
         "packageName": "attini_cdk_lib"

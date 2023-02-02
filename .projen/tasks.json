@@ -135,6 +135,9 @@
       "description": "Packages artifacts for all target languages",
       "steps": [
         {
+          "spawn": "package:java"
+        },
+        {
           "spawn": "package:go"
         }
       ]
@@ -145,6 +148,15 @@
       "steps": [
         {
           "exec": "jsii-pacmak -v --target go"
+        }
+      ]
+    },
+    "package:java": {
+      "name": "package:java",
+      "description": "Create java language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target java"
         }
       ]
     },
