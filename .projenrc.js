@@ -35,7 +35,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     //'github.com/attini-cloud-solutions/attini-cdk-go/attinicdk',
     // gitUserEmail: 'carl.ostrand@gmail.com',
     // gitUserName: 'carlostrand',
-    githubUseSsh: false,
+    // githubUseSsh: false,
   },
 
   // deps: [],                /* Runtime dependencies of this module. */
