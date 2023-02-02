@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { AttiniRunnerJob } from '../src/attini-runner-job';
+import { AttiniRunnerJob } from '../src';
 
 test('should create Runner job step with Runner', () => {
   const mockApp = new App();
