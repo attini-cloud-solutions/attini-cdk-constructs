@@ -1,11 +1,10 @@
 import { CfnResource } from 'aws-cdk-lib';
-import { Chain, State, StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 
 
 export interface DeploymentPlanProps {
-  readonly states?: Array<State>;
-  readonly definition?: Chain;
+  readonly definition: Chain;
 }
 
 export class DeploymentPlan extends Construct {
@@ -14,32 +13,12 @@ export class DeploymentPlan extends Construct {
   constructor(scope: Construct, id: string, props: DeploymentPlanProps) {
     super(scope, id);
 
-    let states: any;
-
-    if (props.states != null) {
-      states = this.createSimplePlan(props.states);
-    } else if (props.definition) {
-      states = new StateGraph(props.definition.startState, 'not important').toGraphJson();
-    }
-
-
     new CfnResource(this, id, {
       type: 'Attini::Deploy::DeploymentPlan',
       properties: {
-        DeploymentPlan: states,
+        DeploymentPlan: new StateGraph(props.definition.startState, 'not important').toGraphJson(),
       },
     });
-  }
-
-  private createSimplePlan(states: Array<State>) {
-    return states.map(value => {
-      let json = <any>value.toStateJson();
-      delete json.End;
-      delete json.Next;
-      json.Name = value.id;
-      return json;
-    });
-
   }
 
 }
@@ -81,6 +60,8 @@ export class AttiniRunner extends Construct {
     super(scope, id);
     this.runnerName = id;
     let copy: any = { ...props };
+
+
     if (props.awsVpcConfiguration?.subnets) {
       copy.awsVpcConfiguration.subnets = props.awsVpcConfiguration.subnets.join(',');
     }
@@ -88,23 +69,36 @@ export class AttiniRunner extends Construct {
       copy.securityGroups.securityGroups = props.awsVpcConfiguration.securityGroups.join(',');
     }
 
+    if (props.awsVpcConfiguration) {
+      copy.securityGroups = PropsUtil.fixCase(props.awsVpcConfiguration);
+    }
+
+    if (props.runnerConfiguration) {
+      copy.runnerConfiguration = PropsUtil.fixCase(props.runnerConfiguration);
+    }
+
+    if (props.startup) {
+      copy.startup = PropsUtil.fixCase(props.startup);
+    }
+
+
     new CfnResource(this, id, {
       type: 'Attini::Deploy::Runner',
-      properties: this.fixCase(copy),
+      properties: PropsUtil.fixCase(copy),
     });
   }
+}
 
-  private fixCase(props: any): object {
+export class PropsUtil {
+  static fixCase(props: any): object {
     let copy: any = {};
     Object.entries(props).forEach(([key, value]) => {
-      if (typeof value === 'object' && !(value instanceof Array)) {
-        value = this.fixCase(value);
-      }
       copy[key.charAt(0).toUpperCase() + key.slice(1)] = value;
     });
     return copy;
   }
 }
+
 export * from './attini-state';
 export * from './attini-merge';
 export * from './attini-runner-job';

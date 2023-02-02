@@ -6,6 +6,7 @@ export abstract class AttiniState extends State implements IChainable, INextable
 
   public readonly endStates: INextable[];
   abstract type: string;
+
   protected constructor(scope: Construct, id: string) {
     super(scope, id, {});
     this.endStates = [this];
@@ -16,13 +17,13 @@ export abstract class AttiniState extends State implements IChainable, INextable
     return Chain.sequence(this, next);
   }
 
-  protected abstract renderProps() : object;
+  protected abstract renderProps(): object;
 
   toStateJson(): object {
     return {
       Type: this.type,
-      ... this.renderProps(),
-      ... super.renderNextEnd(),
+      ...this.renderProps(),
+      ...super.renderNextEnd(),
     };
   }
 
