@@ -1,5 +1,6 @@
 {
-  "name": "attini-cdk-constructs",
+  "name": "attini-cdk-lib",
+  "description": "Attini resources",
   "repository": {
     "type": "git",
     "url": "git@github.com:attini-cloud-solutions/attini-cdk-constructs.git"
@@ -16,10 +17,15 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:go": "npx projen package:go",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
+    "release:0": "npx projen release:0",
+    "release:1": "npx projen release:1",
+    "release:2": "npx projen release:2",
+    "release:3": "npx projen release:3",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
@@ -29,15 +35,15 @@
   },
   "author": {
     "name": "oscarostrand",
-    "email": "oscar.ostrand@gmail.com",
-    "organization": false
+    "email": "contact@attini.io",
+    "organization": true
   },
   "devDependencies": {
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "2.0.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -56,7 +62,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.0.0",
     "constructs": "^10.0.5"
   },
   "keywords": [
@@ -64,7 +70,10 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "bugs": {
+    "email": "support@attini.io"
+  },
   "jest": {
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
@@ -109,7 +118,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "go": {
+        "moduleName": "attini_cdk",
+        "packageName": "attini_cdk_lib"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
