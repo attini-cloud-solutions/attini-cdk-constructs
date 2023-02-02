@@ -1,12 +1,33 @@
 const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
+  authorOrganization: true,
+  // authorUrl: 'https://attini.io/',
+
+  bugsEmail: 'support@attini.io',
   author: 'oscarostrand',
-  authorAddress: 'oscar.ostrand@gmail.com',
+  description: 'Attini resources',
+  copyrightOwner: 'Attini Cloud Solutions International AB',
+
+  authorAddress: 'contact@attini.io',
+
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
-  name: 'attini-cdk-constructs',
+  name: 'attini-cdk-lib',
   repositoryUrl: 'git@github.com:attini-cloud-solutions/attini-cdk-constructs.git',
   releaseToNpm: false,
+  releaseBranches: 'main',
+  // docgen: true,
+  // publishToPypi: {
+  //   distName: 'attini-cdk-lib',
+  //   module: 'attini_cdk',
+  // },
+  publishToGo: {
+    packageName: 'attini_cdk_lib',
+    moduleName: 'attini_cdk',
+    githubRepo: 'github.com/carlostrand/test',
+    githubUseSsh: true,
+    gitUserEmail: 'carl.ostrand@gmail.com',
+  },
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
