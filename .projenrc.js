@@ -25,8 +25,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     packageName: 'attini_cdk_lib',
     moduleName: 'attini_cdk',
     githubRepo: 'github.com/carlostrand/test',
-    githubUseSsh: true,
     gitUserEmail: 'carl.ostrand@gmail.com',
+    gitUserName: 'carlostrand',
   },
 
   // deps: [],                /* Runtime dependencies of this module. */
