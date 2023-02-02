@@ -126,7 +126,7 @@
         }
       },
       "go": {
-        "moduleName": "github.com/attini-cloud-solutions/attini-cdk-go/attinicdk",
+        "moduleName": "github.com/carlostrand/test",
         "packageName": "attini_cdk_lib"
       }
     },
