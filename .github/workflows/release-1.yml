@@ -143,7 +143,7 @@ jobs:
         run: mv .repo/dist dist
       - name: Release
         env:
-          GITHUB_REPO: github.com/carlostrand/test.git
+          GITHUB_REPO: https://github.com/carlostrand/test.git
           GIT_USER_NAME: carlostrand
           GIT_USER_EMAIL: carl.ostrand@gmail.com
           GITHUB_TOKEN: ${{ secrets.GO_GITHUB_TOKEN }}
