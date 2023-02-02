@@ -16,7 +16,7 @@ export abstract class AttiniState extends State implements IChainable, INextable
     return Chain.sequence(this, next);
   }
 
-  abstract renderProps() : object;
+  protected abstract renderProps() : object;
 
   toStateJson(): object {
     return {

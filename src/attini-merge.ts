@@ -8,7 +8,7 @@ export class AttiniMerge extends AttiniState {
     super(scope, id);
   }
 
-  renderProps(): object {
+  protected renderProps(): object {
     return {};
   }
 }

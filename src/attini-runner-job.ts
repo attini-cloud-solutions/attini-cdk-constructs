@@ -1,4 +1,3 @@
-import { Chain, IChainable } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { AttiniState } from './attini-state';
 
@@ -11,7 +10,7 @@ export class AttiniRunnerJob extends AttiniState {
     this.props = props;
   }
 
-  renderProps() {
+  protected renderProps(): object {
     let finalProperties: {[k: string]: any} = {
       Commands: this.props.commands,
     };
@@ -19,11 +18,6 @@ export class AttiniRunnerJob extends AttiniState {
       finalProperties.Runner = this.props.runner;
     }
     return { Properties: finalProperties };
-  }
-
-  public next(next: IChainable): Chain {
-    super.makeNext(next.startState);
-    return Chain.sequence(this, next);
   }
 
 

@@ -63,14 +63,14 @@ export interface RunnerConfiguration {
 }
 
 export interface AwsVpcConfiguration {
-  subnets?: [string];
-  securityGroups?: [string];
-  assignPublicIp?: string;
+  readonly subnets?: [string];
+  readonly securityGroups?: [string];
+  readonly assignPublicIp?: string;
 }
 
 export interface Startup {
-  commands?: [string];
-  commandsTimeout?: number;
+  readonly commands?: [string];
+  readonly commandsTimeout?: number;
 }
 
 export class AttiniRunner extends Construct {
@@ -105,3 +105,6 @@ export class AttiniRunner extends Construct {
     return copy;
   }
 }
+export * from './attini-state';
+export * from './attini-merge';
+export * from './attini-runner-job';
