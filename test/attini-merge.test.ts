@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { AttiniMerge } from '../lib/attini-merge';
+import { AttiniMerge } from '../lib';
 
 test('should create merge step', () => {
   const mockApp = new App();

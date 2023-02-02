@@ -26,6 +26,7 @@ test('should create Runner job step without Runner', () => {
   let attiniRunnerJob = new AttiniRunnerJob(stack, 'Keep running', {
     commands: ['echo hello!'],
   });
+
   expect(attiniRunnerJob.toStateJson()).toEqual({
     Type: 'AttiniRunnerJob',
     Properties: {
