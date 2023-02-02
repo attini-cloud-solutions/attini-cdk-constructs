@@ -42,13 +42,13 @@ export interface RunnerConfiguration {
 }
 
 export interface AwsVpcConfiguration {
-  readonly subnets?: [string];
-  readonly securityGroups?: [string];
+  readonly subnets?: Array<string>;
+  readonly securityGroups?: Array<string>;
   readonly assignPublicIp?: string;
 }
 
 export interface Startup {
-  readonly commands?: [string];
+  readonly commands?: Array<string>;
   readonly commandsTimeout?: number;
 }
 
