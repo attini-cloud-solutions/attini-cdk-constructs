@@ -68,7 +68,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "homepage": "https://attini.io",
+  "homepage": "https://github.com/attini-cloud-solutions/attini-cdk-constructs",
   "version": "0.0.0",
   "bugs": {
     "email": "support@attini.io"

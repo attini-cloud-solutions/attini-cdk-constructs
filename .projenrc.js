@@ -9,7 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   copyrightOwner: 'Attini Cloud Solutions International AB',
 
   authorAddress: 'contact@attini.io',
-  homepage: 'https://attini.io',
+  homepage: 'https://github.com/attini-cloud-solutions/attini-cdk-constructs',
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
   name: 'attini-cdk-lib',
