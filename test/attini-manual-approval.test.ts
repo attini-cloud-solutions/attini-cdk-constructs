@@ -1,12 +1,12 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { AttiniMerge } from '../src';
+import { AttiniManualApproval } from '../src';
 
 test('should create merge step', () => {
   const mockApp = new App();
   const stack = new Stack(mockApp);
-  let attiniMerge = new AttiniMerge(stack, 'merge');
+  let attiniMerge = new AttiniManualApproval(stack, 'manualApproval' );
   expect(attiniMerge.toStateJson()).toEqual({
-    Type: 'AttiniMergeOutput',
+    Type: 'AttiniManualApproval',
     End: true,
   });
 
