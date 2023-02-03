@@ -115,3 +115,4 @@ export * from './attini-cfn';
 export * from './attini-manual-approval';
 export * from './attini-import';
 export * from './attini-lambda-invoke';
+export * from './attini-sam';
