@@ -16,6 +16,8 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:go": "npx projen package:go",
+    "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
@@ -121,6 +123,10 @@
       "python": {
         "distName": "attini-cdk-lib",
         "module": "attini_cdk"
+      },
+      "go": {
+        "moduleName": "github.com/attini-cloud-solutions/attini-cdk-go",
+        "packageName": "attini_cdk_lib"
       }
     },
     "tsc": {
