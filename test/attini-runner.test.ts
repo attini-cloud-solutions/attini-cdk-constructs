@@ -13,8 +13,8 @@ test('should create runner resource', () => {
     },
     awsVpcConfiguration: {
       assignPublicIp: true,
-      securityGroups: ['test','test2']
-    }
+      securityGroups: ['test', 'test2'],
+    },
   });
 
   const template = Template.fromStack(stack);
@@ -24,9 +24,9 @@ test('should create runner resource', () => {
       Commands: ['echo starting'],
     },
     AwsVpcConfiguration: {
-      AssignPublicIp: "ENABLED",
+      AssignPublicIp: 'ENABLED',
       SecurityGroups: 'test,test2',
-    }
+    },
   });
   expect(attiniRunner.runnerName).toEqual('my runner');
 
