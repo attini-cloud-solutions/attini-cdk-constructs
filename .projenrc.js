@@ -17,13 +17,14 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'git@github.com:attini-cloud-solutions/attini-cdk-constructs.git',
   releaseBranches: 'main',
   docgen: false,
-
   publishToPypi: {
     distName: 'attini-cdk-lib',
     module: 'attini_cdk',
     twineRegistryUrl: 'https://upload.pypi.org/legacy/',
+    twinePasswordSecret: 'TWINE_PASSWORD',
+    twineUsernameSecret: 'TWINE_USERNAME',
   },
-  releaseToNpm: true,
+  releaseToNpm: false,
   npmTokenSecret: 'NPM_TOKEN',
 
   // publishToMaven: {
