@@ -1,5 +1,5 @@
 {
-  "name": "@attini/attini-cdk-lib",
+  "name": "@attini/cdk",
   "description": "Attini CDK Constructs",
   "repository": {
     "type": "git",
@@ -16,7 +16,6 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
-    "package:js": "npx projen package:js",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
@@ -68,7 +67,8 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.0",
+  "homepage": "https://attini.io",
+  "version": "0.0.3",
   "bugs": {
     "email": "support@attini.io"
   },
