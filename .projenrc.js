@@ -20,7 +20,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   publishToPypi: {
     distName: 'attini-cdk-lib',
     module: 'attini_cdk',
-    twineRegistryUrl: 'https://upload.pypi.org/legacy/',
+    // twineRegistryUrl: 'https://upload.pypi.org/legacy/',
     twinePasswordSecret: 'TWINE_PASSWORD',
     twineUsernameSecret: 'TWINE_USERNAME',
   },
