@@ -3,7 +3,7 @@
   "description": "Attini CDK Constructs",
   "repository": {
     "type": "git",
-    "url": "git@github.com:attini-cloud-solutions/attini-cdk-constructs.git"
+    "url": "https://github.com/attini-cloud-solutions/attini-cdk-constructs"
   },
   "scripts": {
     "build": "npx projen build",
@@ -68,7 +68,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/attini-cloud-solutions/attini-cdk-constructs",
+  "homepage": "https://attini.io",
   "version": "0.0.0",
   "bugs": {
     "email": "support@attini.io"
