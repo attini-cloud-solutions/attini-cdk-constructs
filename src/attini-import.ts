@@ -54,13 +54,11 @@ export class AttiniImport extends AttiniTask {
       properties.Source = PropsUtil.fixCase(this.props.distributionSource);
     }
 
-    if (properties.Mapping) {
+    if (this.props.mapping) {
       properties.Mapping = this.props.mapping;
-
     }
-    if (properties.ExecutionRoleArn) {
+    if (this.props.executionRoleArn) {
       properties.ExecutionRoleArn = this.props.executionRoleArn;
-
     }
 
     return {

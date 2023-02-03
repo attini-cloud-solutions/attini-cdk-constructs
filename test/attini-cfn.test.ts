@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { AttiniCfn } from '../src/attini-cfn';
+import { AttiniCfn } from '../src';
 
 test('should create a cfn step', () => {
   const mockApp = new App();
@@ -18,7 +18,6 @@ test('should create a cfn step', () => {
     },
     End: true,
   });
-
 });
 
 
