@@ -1,5 +1,6 @@
+import { FieldUtils } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
-import { AttiniState } from './attini-state';
+import { AttiniTask } from './attini-task';
 import { PropsUtil } from './index';
 
 
@@ -26,7 +27,7 @@ export interface AttiniImportProps {
   readonly executionRoleArn?: String;
 }
 
-export class AttiniImport extends AttiniState {
+export class AttiniImport extends AttiniTask {
   type: string = 'AttiniImport';
 
 
@@ -63,7 +64,7 @@ export class AttiniImport extends AttiniState {
     }
 
     return {
-      Properties: properties,
+      Properties: FieldUtils.renderObject(properties),
     };
   }
 

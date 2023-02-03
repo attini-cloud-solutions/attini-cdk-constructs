@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
-import { AttiniState } from './attini-state';
+import { AttiniTask } from './attini-task';
 
-export class AttiniRunnerJob extends AttiniState {
+export class AttiniRunnerJob extends AttiniTask {
 
   type: string = 'AttiniRunnerJob';
 

@@ -116,3 +116,4 @@ export * from './attini-manual-approval';
 export * from './attini-import';
 export * from './attini-lambda-invoke';
 export * from './attini-sam';
+export * from './attini-task';

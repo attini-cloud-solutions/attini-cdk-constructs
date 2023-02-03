@@ -1,5 +1,6 @@
+import { FieldUtils } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
-import { AttiniState } from './attini-state';
+import { AttiniTask } from './attini-task';
 import { PropsUtil } from './index';
 
 
@@ -17,7 +18,7 @@ export interface AttiniCfnProps {
   readonly action?: string;
   readonly enableTerminationProtection?: boolean;
 }
-export class AttiniCfn extends AttiniState {
+export class AttiniCfn extends AttiniTask {
 
   type: string = 'AttiniCfn';
 
@@ -28,7 +29,7 @@ export class AttiniCfn extends AttiniState {
 
   protected renderProps(): object {
     return {
-      Properties: PropsUtil.fixCase(this.props),
+      Properties: FieldUtils.renderObject(PropsUtil.fixCase(this.props)),
     };
   }
 

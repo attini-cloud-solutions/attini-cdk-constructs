@@ -1,3 +1,4 @@
+import { FieldUtils } from 'aws-cdk-lib/aws-stepfunctions';
 import { LambdaInvocationType } from 'aws-cdk-lib/aws-stepfunctions-tasks/lib/lambda/invoke';
 import { Construct } from 'constructs';
 import { AttiniState } from './attini-state';
@@ -41,7 +42,7 @@ export class AttiniLambdaInvoke extends AttiniState {
 
   protected renderProps(): object {
     return {
-      Parameters: PropsUtil.fixCase(this.props),
+      Parameters: FieldUtils.renderObject(PropsUtil.fixCase(this.props)),
     };
   }
 }
