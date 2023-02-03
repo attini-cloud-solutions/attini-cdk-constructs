@@ -9,23 +9,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
   copyrightOwner: 'Attini Cloud Solutions International AB',
 
   authorAddress: 'contact@attini.io',
-
+  homepage: 'https://attini.io',
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
   name: 'attini-cdk-lib',
-  packageName: '@attini/attini-cdk-lib',
+  packageName: '@attini/cdk',
   repositoryUrl: 'git@github.com:attini-cloud-solutions/attini-cdk-constructs.git',
   releaseBranches: 'main',
   docgen: false,
-  // npmAccess: {
-  //   NpmAccess: PUBLIC
-  // },
-  // publishToPypi: {
-  //   distName: 'attini-cdk-lib',
-  //   module: 'attini_cdk',
-  // },
+  publishToPypi: {
+    distName: 'attini-cdk-lib',
+    module: 'attini_cdk',
+  },
   releaseToNpm: true,
   npmTokenSecret: 'NPM_TOKEN',
+
   // publishToMaven: {
   //   mavenGroupId: 'attini.cdk',
   //   mavenArtifactId: 'attini-cdk-lib',
