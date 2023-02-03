@@ -137,7 +137,7 @@ jobs:
         run: mv .repo/dist dist
       - name: Release
         env:
-          TWINE_REPOSITORY_URL: https://pypi.org/project/attini-cdk-lib/
+          TWINE_REPOSITORY_URL: https://upload.pypi.org/
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
         run: npx -p publib@latest publib-pypi
