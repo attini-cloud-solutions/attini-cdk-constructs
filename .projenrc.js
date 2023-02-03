@@ -12,7 +12,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
-  name: 'attini-cdk-lib',
+  name: 'attini-cdk-lib-test',
   repositoryUrl: 'git@github.com:attini-cloud-solutions/attini-cdk-constructs.git',
   releaseBranches: 'main',
   docgen: false,
