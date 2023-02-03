@@ -16,8 +16,6 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
-    "package:go": "npx projen package:go",
-    "package:java": "npx projen package:java",
     "package:js": "npx projen package:js",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
@@ -70,7 +68,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "bugs": {
     "email": "support@attini.io"
   },
@@ -118,19 +116,7 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {
-      "java": {
-        "package": "attini.cdk",
-        "maven": {
-          "groupId": "attini.cdk",
-          "artifactId": "attini-cdk-lib"
-        }
-      },
-      "go": {
-        "moduleName": "github.com/attini-cloud-solutions/attini-cdk-go",
-        "packageName": "attini_cdk_lib"
-      }
-    },
+    "targets": {},
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
