@@ -1,5 +1,5 @@
 {
-  "name": "attini-cdk-lib",
+  "name": "@attini/attini-cdk-lib",
   "description": "Attini CDK Constructs",
   "repository": {
     "type": "git",
