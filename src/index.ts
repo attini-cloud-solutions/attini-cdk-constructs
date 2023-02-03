@@ -1,10 +1,19 @@
-import { CfnResource } from 'aws-cdk-lib';
+import { CfnResource, Stack, StackProps } from 'aws-cdk-lib';
 import { Chain, StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 
 
 export interface DeploymentPlanProps {
   readonly definition: Chain;
+}
+
+export class DeploymentPlanStack extends Stack {
+
+  constructor(scope: Construct, id: string, props: StackProps) {
+    super(scope, id, props);
+    this.addTransform('AttiniDeploymentPlan');
+    this.addTransform('AWS::Serverless-2016-10-31');
+  }
 }
 
 export class DeploymentPlan extends Construct {
