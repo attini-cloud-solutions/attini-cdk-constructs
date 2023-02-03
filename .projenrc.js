@@ -22,7 +22,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // },
   releaseToNpm: true,
   npmTokenSecret: 'NPM_TOKEN',
-  npm
   // publishToMaven: {
   //   mavenGroupId: 'attini.cdk',
   //   mavenArtifactId: 'attini-cdk-lib',

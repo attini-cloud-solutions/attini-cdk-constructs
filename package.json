@@ -1,6 +1,6 @@
 {
   "name": "attini-cdk-lib",
-  "description": "Attini resources",
+  "description": "Attini CDK Constructs",
   "repository": {
     "type": "git",
     "url": "git@github.com:attini-cloud-solutions/attini-cdk-constructs.git"
@@ -68,7 +68,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "bugs": {
     "email": "support@attini.io"
   },
