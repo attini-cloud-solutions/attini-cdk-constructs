@@ -37,7 +37,6 @@ export class AttiniRunner extends Construct {
 
   constructor(scope: Construct, id: string, props: AttiniRunnerProps) {
     super(scope, id);
-    this.runnerName = id;
     let copy: any = { ...props };
 
 
@@ -64,9 +63,11 @@ export class AttiniRunner extends Construct {
     }
 
 
-    new CfnResource(this, id, {
+    let cfnResource = new CfnResource(this, id, {
       type: 'Attini::Deploy::Runner',
       properties: PropsUtil.fixCase(copy),
     });
+
+    this.runnerName = cfnResource.logicalId;
   }
 }
