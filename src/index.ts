@@ -1,10 +1,11 @@
 import { CfnResource, Stack, StackProps } from 'aws-cdk-lib';
-import { Chain, StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
+import { StateGraph } from 'aws-cdk-lib/aws-stepfunctions';
+import { IChainable } from 'aws-cdk-lib/aws-stepfunctions/lib/types';
 import { Construct } from 'constructs';
 
 
 export interface DeploymentPlanProps {
-  readonly definition: Chain;
+  readonly definition: IChainable;
 }
 
 export class DeploymentPlanStack extends Stack {
