@@ -14,6 +14,8 @@ export interface AttiniLambdaInvokeProps {
   /**
    * The JSON that will be supplied as input to the Lambda function.
    *
+   * If not specified then the entire payload will be passed.
+   *
    */
   readonly payload?: object;
   /**
@@ -32,6 +34,10 @@ export interface AttiniLambdaInvokeProps {
   readonly qualifier?: string;
 }
 
+/**
+ * AttiniLambdaInvoke will call a Lambda function while preserving the payload for subsequent steps.
+ *
+ */
 export class AttiniLambdaInvoke extends AttiniState {
   type: string = 'AttiniLambdaInvoke';
 

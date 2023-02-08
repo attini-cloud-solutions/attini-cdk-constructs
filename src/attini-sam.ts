@@ -1,7 +1,7 @@
 import { FieldUtils } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { AttiniTask } from './attini-task';
-import { PropsUtil } from './index';
+import { CfnAction, PropsUtil } from './index';
 
 export interface Project {
 
@@ -29,14 +29,17 @@ export interface Project {
 }
 
 export interface AttiniSamProps {
+
   /**
    * SAM project config
    */
   readonly project: Project;
+
   /**
    * The name that should be given to the stack when deployed. The name must be unique in the Region in which you are creating the stack.
    */
   readonly stackName: string;
+
   /**
    * Specifies a path to a configuration file for the stack.
    *
@@ -55,6 +58,7 @@ export interface AttiniSamProps {
    * The tags for the stack
    */
   readonly tags?: { [key: string]: string };
+
   /**
    * The arn of the StackRole, find more info here: {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html AWS CloudFormation service role}
    */
@@ -69,6 +73,7 @@ export interface AttiniSamProps {
    * ```
    */
   readonly executionRoleArn?: string;
+
   /**
    * Variables that should be passed to any {@link configFile} that is configured.
    * Variables can be referenced in the configuration file and can be used to pass data from the payload to the configuration.
@@ -79,7 +84,7 @@ export interface AttiniSamProps {
    * Specify if the stack should be created/updated or deleted.
    *
    */
-  readonly action?: Action;
+  readonly action?: CfnAction;
 
   /**
    * Specify if termination protection should be enabled for the stack.
@@ -90,13 +95,8 @@ export interface AttiniSamProps {
   readonly enableTerminationProtection?: boolean;
 }
 
-export enum Action {
-  DEPLOY,
-  DELETE
-}
-
 /**
- * A step for deploying a AWS SAM Project
+ * A step for deploying an AWS SAM Project
  */
 
 export class AttiniSam extends AttiniTask {
@@ -111,9 +111,9 @@ export class AttiniSam extends AttiniTask {
 
     let copy: any = { ...this.props };
 
-    if (this.props.action && this.props.action.valueOf() === Action.DEPLOY.valueOf()) {
+    if (this.props.action && this.props.action.valueOf() === CfnAction.DEPLOY.valueOf()) {
       copy.action = 'Deploy';
-    } else if (this.props.action && this.props.action.valueOf() === Action.DELETE.valueOf()) {
+    } else if (this.props.action && this.props.action.valueOf() === CfnAction.DELETE.valueOf()) {
       copy.action = 'Delete';
     }
 

@@ -43,6 +43,11 @@ export class PropsUtil {
   }
 }
 
+export enum CfnAction {
+  DEPLOY,
+  DELETE
+}
+
 export * from './attini-state';
 export * from './attini-merge';
 export * from './attini-runner-job';
