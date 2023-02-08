@@ -7,7 +7,7 @@ export interface AttiniRunnerProps {
   /**
    * Fargate ECS task definition that the Attini Runner should use.
    *
-   * If omitted the Attini will use its default task definition
+   * If omitted then Attini will use its default task definition.
    */
   readonly taskDefinitionArn?: string;
 
@@ -128,6 +128,10 @@ export interface Startup {
 
 export class AttiniRunner extends Construct {
 
+  /**
+   * Returns a reference to the runner that can be used by the {@link AttiniRunnerJob} step.
+   * Pass it to {@link AttiniRunnerJobProps.runner}.
+   */
   readonly runnerName: string;
 
   constructor(scope: Construct, id: string, props: AttiniRunnerProps) {
