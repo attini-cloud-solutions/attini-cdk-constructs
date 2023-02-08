@@ -28,7 +28,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     mavenArtifactId: 'attini-cdk-lib',
     javaPackage: 'attini.cdk',
     repositoryUrl: 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/',
-    // mavenEndpoint: ,
+    mavenEndpoint: 'https://s01.oss.sonatype.org/',
     mavenStagingProfileId: 'MAVEN_STAGING_PROFILE_ID',
     mavenGpgPrivateKeyPassphrase: 'MAVEN_GPG_PRIVATE_KEY_PASSPHRASE',
     mavenGpgPrivateKeySecret: 'MAVEN_GPG_PRIVATE_KEY',
