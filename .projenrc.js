@@ -1,8 +1,6 @@
 const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   authorOrganization: true,
-  // authorUrl: 'https://attini.io/',
-
   bugsEmail: 'support@attini.io',
   author: 'oscarostrand',
   description: 'Attini CDK Constructs',
@@ -25,28 +23,20 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   releaseToNpm: true,
   npmTokenSecret: 'NPM_TOKEN',
-
   publishToMaven: {
     mavenGroupId: 'io.attini.cdk',
     mavenArtifactId: 'attini-cdk-lib',
     javaPackage: 'attini.cdk',
     mavenEndpoint: 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/',
     mavenPassword: 'MAVEN_PASSWORD',
-    mavenUsername: 'MAVEN_USERNAME'
+    mavenUsername: 'MAVEN_USERNAME',
   },
   publishToGo: {
     packageName: 'attini_cdk_lib',
     moduleName: 'github.com/attini-cloud-solutions/attini-cdk-go',
     githubRepo: 'github.com/attini-cloud-solutions/attini-cdk-go.git',
     githubTokenSecret: 'GO_GITHUB_TOKEN',
-
-    //'github.com/attini-cloud-solutions/attini-cdk-go/attinicdk',
-    // gitUserEmail: 'carl.ostrand@gmail.com',
-    // gitUserName: 'carlostrand',
-    // githubUseSsh: false,
-c
-
-
+  }
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
