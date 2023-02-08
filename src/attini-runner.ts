@@ -14,9 +14,21 @@ export interface AttiniRunnerProps {
 }
 
 export interface RunnerConfiguration {
+  /**
+   * The max amount of concurrent jobs the Attini Runner will execute.
+   */
   readonly maxConcurrentJobs?: number;
+  /**
+   *The number of seconds the Attini Runner will stay alive without any jobs executing. New jobs will reset the countdown.
+   */
   readonly idleTimeToLive?: number;
+  /**
+   * The number of seconds a job can execute before the Attini Runner aborts the execution.
+   */
   readonly jobTimeout?: number;
+  /**
+   * The log level of the Attini Runner.
+   */
   readonly logLevel?: string;
 }
 
