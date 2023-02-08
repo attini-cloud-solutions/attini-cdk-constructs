@@ -9,7 +9,7 @@ export abstract class AttiniTask extends AttiniState {
    * $.output.<id>.<path>.
    *
    * @param {string} [path] - The path to the value from the outputs root.
-   * @
+   *
    */
   public getOutputPath(path?: string) {
     if (path) {

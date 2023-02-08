@@ -1,6 +1,9 @@
 import { Construct } from 'constructs';
 import { AttiniTask } from './attini-task';
 
+/**
+ * The AttiniRunnerJob is a quick and cost-efficient way to run shell commands using a container.
+ */
 export class AttiniRunnerJob extends AttiniTask {
 
   type: string = 'AttiniRunnerJob';
@@ -24,6 +27,17 @@ export class AttiniRunnerJob extends AttiniTask {
 }
 
 export interface AttiniRunnerJobProps {
+
+  /**
+   * A reference to an {@link AttiniRunner} to use for executing the job.
+   * Use {@link AttiniRunner.runnerName} to get a reference.
+   *
+   * If omitted the Attini default runner will be used.
+   */
   readonly runner?: string;
+
+  /**
+   * A list of shell commands that will be executed by the Runner.
+   */
   readonly commands: Array<string>;
 }
