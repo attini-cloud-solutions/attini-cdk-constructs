@@ -32,6 +32,8 @@ jobs:
 
           \            zip -r docs-ts.zip docs
 
+          \            aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
+
           \           "
       - name: Find mutations
         id: self_mutation
