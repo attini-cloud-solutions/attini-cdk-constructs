@@ -46,9 +46,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
       name: 'Build docs',
 
       run: `
-            echo TEST_POST_BUILD_HOOK
-            pwd
-            ls -la
+            npm install --save-dev typedoc
+            npx typedoc src/index.ts
+            zip -r docs-ts.zip docs
            `,
     },
   ],

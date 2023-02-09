@@ -31,11 +31,11 @@ jobs:
       - name: Build docs
         run: "
 
-          \            echo TEST_POST_BUILD_HOOK
+          \            npm install --save-dev typedoc
 
-          \            pwd
+          \            npx typedoc src/index.ts
 
-          \            ls -la
+          \            zip -r docs-ts.zip docs
 
           \           "
       - name: Check for new commits
