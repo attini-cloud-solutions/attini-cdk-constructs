@@ -23,18 +23,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // },
   releaseToNpm: false,
   npmTokenSecret: 'NPM_TOKEN',
-  publishToMaven: {
-    mavenGroupId: 'io.attini.cdk',
-    mavenArtifactId: 'attini-cdk-lib',
-    javaPackage: 'attini.cdk',
-    repositoryUrl: 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/',
-    mavenEndpoint: 'https://s01.oss.sonatype.org/',
-    mavenStagingProfileId: 'MAVEN_STAGING_PROFILE_ID',
-    mavenGpgPrivateKeyPassphrase: 'MAVEN_GPG_PRIVATE_KEY_PASSPHRASE',
-    mavenGpgPrivateKeySecret: 'MAVEN_GPG_PRIVATE_KEY',
-    mavenPassword: 'MAVEN_PASSWORD',
-    mavenUsername: 'MAVEN_USERNAME',
-  },
+  // publishToMaven: {
+  //   mavenGroupId: 'io.attini.cdk',
+  //   mavenArtifactId: 'attini-cdk-lib',
+  //   javaPackage: 'attini.cdk',
+  //   repositoryUrl: 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/',
+  //   mavenEndpoint: 'https://s01.oss.sonatype.org/',
+  //   mavenStagingProfileId: 'MAVEN_STAGING_PROFILE_ID',
+  //   mavenGpgPrivateKeyPassphrase: 'MAVEN_GPG_PRIVATE_KEY_PASSPHRASE',
+  //   mavenGpgPrivateKeySecret: 'MAVEN_GPG_PRIVATE_KEY',
+  //   mavenPassword: 'MAVEN_PASSWORD',
+  //   mavenUsername: 'MAVEN_USERNAME',
+  // },
   // publishToGo: {
   //   packageName: 'attini_cdk_lib',
   //   moduleName: 'github.com/attini-cloud-solutions/attini-cdk-go',
@@ -45,7 +45,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
     {
       name: 'Build docs',
 
-      run: 'echo TEST_POST_BUILD_HOOK',
+      run: `
+            echo TEST_POST_BUILD_HOOK
+            pwd
+            ls -la
+           `,
     },
   ],
   gitignore: [

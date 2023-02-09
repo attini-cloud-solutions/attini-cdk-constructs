@@ -132,21 +132,7 @@
     },
     "package-all": {
       "name": "package-all",
-      "description": "Packages artifacts for all target languages",
-      "steps": [
-        {
-          "spawn": "package:java"
-        }
-      ]
-    },
-    "package:java": {
-      "name": "package:java",
-      "description": "Create java language bindings",
-      "steps": [
-        {
-          "exec": "jsii-pacmak -v --target java"
-        }
-      ]
+      "description": "Packages artifacts for all target languages"
     },
     "post-compile": {
       "name": "post-compile",
