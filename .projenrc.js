@@ -51,8 +51,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
       },
       run: `
             npm install --save-dev typedoc
-            npx typedoc src/index.ts
-            zip -r docs-ts.zip docs
+            npx typedoc src/index.ts --out cdk-docs
+            cd cdk-docs
+            zip -r docs-ts.zip .
             aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
            `,
     },
