@@ -43,14 +43,14 @@ export interface AttiniSamProps {
   /**
    * Specifies a path to a configuration file for the stack.
    *
-   * For more information, see the {@link https://acc.docs.attini.io/api-reference/cloudformation-configuration.html#api-reference-cloudformation-configuration documentation}
+   * For more information, see the {@link https://docs.attini.io/api-reference/cloudformation-configuration.html#api-reference-cloudformation-configuration documentation}
    */
   readonly configFile?: string;
 
   /**
    * The parameters for the stack.
    *
-   * For more information, see the {@link https://acc.docs.attini.io/api-reference/cloudformation-configuration.html#api-reference-cloudformation-configuration documentation}
+   * For more information, see the {@link https://docs.attini.io/api-reference/cloudformation-configuration.html#api-reference-cloudformation-configuration documentation}
    */
   readonly parameters?: { [key: string]: string };
 
