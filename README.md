@@ -1,6 +1,12 @@
+# Attini
+
+Attini is a deployment framework for AWS.
+
 # Attini CDK
 
-The Attini CDK is currently an experimental feature.
+Attini supports CDK constructs for some popular programming languages:
+
+* JavaScript and TypeScrip:
 
 ## How to use
 

@@ -15,28 +15,42 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/attini-cloud-solutions/attini-cdk-constructs',
   releaseBranches: 'main',
   docgen: false,
-  publishToPypi: {
-    distName: 'attini-cdk-lib',
-    module: 'attini_cdk',
-    twinePasswordSecret: 'TWINE_PASSWORD',
-    twineUsernameSecret: 'TWINE_USERNAME',
-  },
-  releaseToNpm: true,
+  // publishToPypi: {
+  //   distName: 'attini-cdk-lib',
+  //   module: 'attini_cdk',
+  //   twinePasswordSecret: 'TWINE_PASSWORD',
+  //   twineUsernameSecret: 'TWINE_USERNAME',
+  // },
+  releaseToNpm: false,
   npmTokenSecret: 'NPM_TOKEN',
   publishToMaven: {
     mavenGroupId: 'io.attini.cdk',
     mavenArtifactId: 'attini-cdk-lib',
     javaPackage: 'attini.cdk',
-    mavenEndpoint: 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/',
+    repositoryUrl: 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/',
+    mavenEndpoint: 'https://s01.oss.sonatype.org/',
+    mavenStagingProfileId: 'MAVEN_STAGING_PROFILE_ID',
+    mavenGpgPrivateKeyPassphrase: 'MAVEN_GPG_PRIVATE_KEY_PASSPHRASE',
+    mavenGpgPrivateKeySecret: 'MAVEN_GPG_PRIVATE_KEY',
     mavenPassword: 'MAVEN_PASSWORD',
     mavenUsername: 'MAVEN_USERNAME',
   },
-  publishToGo: {
-    packageName: 'attini_cdk_lib',
-    moduleName: 'github.com/attini-cloud-solutions/attini-cdk-go',
-    githubRepo: 'github.com/attini-cloud-solutions/attini-cdk-go.git',
-    githubTokenSecret: 'GO_GITHUB_TOKEN',
-  },
+  // publishToGo: {
+  //   packageName: 'attini_cdk_lib',
+  //   moduleName: 'github.com/attini-cloud-solutions/attini-cdk-go',
+  //   githubRepo: 'github.com/attini-cloud-solutions/attini-cdk-go.git',
+  //   githubTokenSecret: 'GO_GITHUB_TOKEN',
+  // },
+  postBuildSteps: [
+    {
+      name: 'Build docs',
+
+      run: 'echo TEST_POST_BUILD_HOOK',
+    },
+  ],
+  gitignore: [
+    '.DS_Store',
+  ],
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
