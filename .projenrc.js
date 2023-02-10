@@ -14,6 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   packageName: '@attini/cdk',
   repositoryUrl: 'https://github.com/attini-cloud-solutions/attini-cdk-constructs',
   releaseBranches: 'main',
+  majorVersion: 1,
   docgen: false,
   publishToPypi: {
     distName: 'attini-cdk-lib',
