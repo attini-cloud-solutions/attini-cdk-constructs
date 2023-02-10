@@ -87,6 +87,10 @@ export interface AttiniCfnProps {
   readonly enableTerminationProtection?: boolean;
 }
 
+
+/**
+ * The AttiniCfn step can create, update or delete a CloudFormation stack.
+ */
 export class AttiniCfn extends AttiniTask {
 
   type: string = 'AttiniCfn';
