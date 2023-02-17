@@ -20,6 +20,25 @@ test('should create CDK step with Runner', () => {
 
 });
 
+test('should create CDK step with Build commands', () => {
+  const mockApp = new App();
+  const stack = new Stack(mockApp);
+  let attiniRunnerJob = new AttiniCdk(stack, 'Keep running', {
+    buildCommands: 'npm install',
+    path: 'my-path',
+  });
+  expect(attiniRunnerJob.toStateJson()).toEqual({
+    Type: 'AttiniCdk',
+    Properties: {
+      Path: 'my-path',
+      Build: 'npm install',
+    },
+    End: true,
+  });
+
+
+});
+
 test('should create CDK step with stack config', () => {
   const mockApp = new App();
   const stack = new Stack(mockApp);

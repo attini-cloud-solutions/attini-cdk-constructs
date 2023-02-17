@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { AttiniTask } from './attini-task';
-import { PropsUtil } from '../lib';
+import { PropsUtil } from './index';
 
 /**
  * The AttiniCdk step allows you to deploy CDK projects as part of your deployment plan.
@@ -15,12 +15,20 @@ export class AttiniCdk extends AttiniTask {
   }
 
   protected renderProps(): object {
-    let copy: any = { ...this.props };
+    //  let copy: any = { buildCommands: _, ...this.props };
+
+    let {
+      buildCommands: _,
+      ...copy
+    }: any = this.props;
 
     if (this.props.stackConfiguration) {
       copy.stackConfiguration = this.props.stackConfiguration?.map(value => PropsUtil.fixCase(value));
     }
 
+    if (this.props.buildCommands) {
+      copy.build = this.props.buildCommands;
+    }
     return { Properties: PropsUtil.fixCase(copy) };
   }
 
@@ -76,7 +84,7 @@ export interface AttiniCdkProps {
   /**
    * Passed to the CDK --build option
    */
-  readonly build?: string;
+  readonly buildCommands?: string;
 
   /**
    * Passed to the CDK --build-exclude option
