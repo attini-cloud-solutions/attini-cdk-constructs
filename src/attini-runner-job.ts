@@ -8,15 +8,19 @@ export class AttiniRunnerJob extends AttiniTask {
 
   type: string = 'AttiniRunnerJob';
 
-  constructor(scope: Construct, id: string, private props: AttiniRunnerJobProps ) {
+  constructor(scope: Construct, id: string, private props: AttiniRunnerJobProps) {
     super(scope, id);
     this.props = props;
   }
 
   protected renderProps(): object {
-    let finalProperties: {[k: string]: any} = {
+    let finalProperties: { [k: string]: any } = {
       Commands: this.props.commands,
     };
+
+    if (this.props.environment) {
+      finalProperties.Environment = this.props.environment;
+    }
     if (this.props.runner) {
       finalProperties.Runner = this.props.runner;
     }
@@ -40,4 +44,9 @@ export interface AttiniRunnerJobProps {
    * A list of shell commands that will be executed by the Runner.
    */
   readonly commands: Array<string>;
+
+  /**
+   * Environment variables that will be set in the shell for the runner job.
+   */
+  readonly environment?: { [key: string]: string };
 }

@@ -58,3 +58,4 @@ export * from './attini-lambda-invoke';
 export * from './attini-sam';
 export * from './attini-task';
 export * from './attini-runner';
+export * from './attini-cdk';
