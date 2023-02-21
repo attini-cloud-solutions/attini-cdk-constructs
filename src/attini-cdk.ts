@@ -15,8 +15,6 @@ export class AttiniCdk extends AttiniTask {
   }
 
   protected renderProps(): object {
-    //  let copy: any = { buildCommands: _, ...this.props };
-
     let {
       buildCommands: _,
       ...copy
