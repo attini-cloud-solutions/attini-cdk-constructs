@@ -5,7 +5,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'oscarostrand',
   description: 'Attini CDK Constructs',
   copyrightOwner: 'Attini Cloud Solutions International AB',
-  prerelease: 'beta',
   authorAddress: 'contact@attini.io',
   homepage: 'https://attini.io',
   cdkVersion: '2.1.0',
