@@ -1,3 +1,4 @@
+import { FieldUtils } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { AttiniTask } from './attini-task';
 
@@ -24,7 +25,7 @@ export class AttiniRunnerJob extends AttiniTask {
     if (this.props.runner) {
       finalProperties.Runner = this.props.runner;
     }
-    return { Properties: finalProperties };
+    return { Properties: FieldUtils.renderObject(finalProperties) };
   }
 
 

@@ -1,3 +1,4 @@
+import { FieldUtils } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { AttiniTask } from './attini-task';
 import { PropsUtil } from './index';
@@ -27,7 +28,7 @@ export class AttiniCdk extends AttiniTask {
     if (this.props.buildCommands) {
       copy.build = this.props.buildCommands;
     }
-    return { Properties: PropsUtil.fixCase(copy) };
+    return { Properties: FieldUtils.renderObject(PropsUtil.fixCase(copy)) };
   }
 
 
