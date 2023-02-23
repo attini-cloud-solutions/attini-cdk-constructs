@@ -54,6 +54,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
             cd cdk-docs
             zip -r docs-ts.zip .
             aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
+            cd ..
+            rmdir -r cdk-docs
            `,
     },
   ],
