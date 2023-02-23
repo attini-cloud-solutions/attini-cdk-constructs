@@ -40,7 +40,7 @@ jobs:
 
           \            cd ..
 
-          \            rmdir -r cdk-docs
+          \            rm -r cdk-docs
 
           \           "
       - name: Find mutations

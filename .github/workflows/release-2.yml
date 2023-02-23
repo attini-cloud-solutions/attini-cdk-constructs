@@ -45,7 +45,7 @@ jobs:
 
           \            cd ..
 
-          \            rmdir -r cdk-docs
+          \            rm -r cdk-docs
 
           \           "
       - name: Check for new commits
