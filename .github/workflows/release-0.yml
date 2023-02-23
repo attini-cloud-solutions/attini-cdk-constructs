@@ -28,6 +28,22 @@ jobs:
         run: yarn install --check-files --frozen-lockfile
       - name: release:0
         run: npx projen release:0
+      - name: Build docs
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        run: "
+
+          \            npx typedoc src/index.ts --out cdk-docs
+
+          \            cd cdk-docs
+
+          \            zip -r docs-ts.zip .
+
+          \            aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
+
+          \           "
       - name: Check for new commits
         id: git_remote
         run: echo "latest_commit=$(git ls-remote origin -h ${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT

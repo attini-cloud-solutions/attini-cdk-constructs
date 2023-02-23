@@ -89,6 +89,10 @@
       "type": "build"
     },
     {
+      "name": "typedoc",
+      "type": "build"
+    },
+    {
       "name": "typescript",
       "type": "build"
     },
