@@ -35,8 +35,6 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: "
 
-          \            npm install --save-dev typedoc
-
           \            npx typedoc src/index.ts --out cdk-docs
 
           \            cd cdk-docs
@@ -44,6 +42,10 @@ jobs:
           \            zip -r docs-ts.zip .
 
           \            aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
+
+          \            cd ..
+
+          \            rm -r cdk-docs
 
           \           "
       - name: Check for new commits
