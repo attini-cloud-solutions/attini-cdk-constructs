@@ -41,23 +41,23 @@ const project = new awscdk.AwsCdkConstructLibrary({
     githubRepo: 'github.com/attini-cloud-solutions/attini-cdk-go.git',
     githubTokenSecret: 'GO_GITHUB_TOKEN',
   },
-  postBuildSteps: [
-    {
-      name: 'Build docs',
-      env: {
-        AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}',
-        AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}',
-        AWS_DEFAULT_REGION: '${{ secrets.AWS_DEFAULT_REGION }}',
-      },
-      run: `
-            npm install --save-dev typedoc
-            npx typedoc src/index.ts --out cdk-docs
-            cd cdk-docs
-            zip -r docs-ts.zip .
-            aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
-           `,
-    },
-  ],
+  // postBuildSteps: [
+  //   {
+  //     name: 'Build docs',
+  //     env: {
+  //       AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}',
+  //       AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}',
+  //       AWS_DEFAULT_REGION: '${{ secrets.AWS_DEFAULT_REGION }}',
+  //     },
+  //     run: `
+  //           npm install --save-dev typedoc
+  //           npx typedoc src/index.ts --out cdk-docs
+  //           cd cdk-docs
+  //           zip -r docs-ts.zip .
+  //           aws s3 cp docs-ts.zip s3://attini-docs-blobs/docs-ts.zip
+  //          `,
+  //   },
+  // ],
   gitignore: [
     '.DS_Store',
   ],
