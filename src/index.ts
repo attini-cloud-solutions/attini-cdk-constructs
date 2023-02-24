@@ -59,3 +59,4 @@ export * from './attini-sam';
 export * from './attini-task';
 export * from './attini-runner';
 export * from './attini-cdk';
+export * from './attini-runtime-variables';
