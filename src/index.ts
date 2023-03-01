@@ -60,3 +60,4 @@ export * from './attini-task';
 export * from './attini-runner';
 export * from './attini-cdk';
 export * from './attini-runtime-variables';
+export * from './attini-payload';
