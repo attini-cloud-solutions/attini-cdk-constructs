@@ -32,7 +32,6 @@ export abstract class AttiniTask extends AttiniState {
    * {my-key: step.getOutput()}
    * {my-key: step.getOutput('path','to','key')}
    *
-   * @example
    * Invalid examples:
    *
    * {my-key: 'test'+ step.getOutput()}

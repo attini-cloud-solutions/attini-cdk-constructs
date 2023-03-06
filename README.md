@@ -25,13 +25,13 @@ npm i @attini/cdk
 
 ##### Maven (Java)
 
-Add the following to your pom.xml file
+Add the following to your pom.xml file:
 
 ```XML
 <dependency>
     <groupId>io.attini.cdk</groupId>
     <artifactId>attini-cdk-lib</artifactId>
-    <version>0.0.45</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
