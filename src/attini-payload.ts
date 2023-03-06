@@ -11,17 +11,15 @@ import { JsonPath } from 'aws-cdk-lib/aws-stepfunctions';
  *
  * {my-key: AttiniPayload.environment()}
  *
- * @example
  * Invalid examples:
  *
  * {my-key: 'test'+ AttiniPayload.environment()}
  * {my-key: '[step.AttiniPayload.environment()]}
  *
- * @param {string[]} [paths] - The path to the value from the outputs root.
  *
  */
 
-export class AttiniPayload {
+export abstract class AttiniPayload {
 
   public static readonly ENVIRONMENT_PATH: string = '$.deploymentOriginData.environment';
 
@@ -31,6 +29,7 @@ export class AttiniPayload {
   public static readonly DISTRIBUTION_VERSION: string = '$.deploymentOriginData.version';
 
   public static readonly STACK_PARAMETERS_PATH: string = '$.stackParameters';
+
 
   public static environment(): string {
     return JsonPath.stringAt(AttiniPayload.ENVIRONMENT_PATH);
@@ -47,4 +46,6 @@ export class AttiniPayload {
   public static version(): string {
     return JsonPath.stringAt(AttiniPayload.DISTRIBUTION_VERSION);
   }
+
+
 }
