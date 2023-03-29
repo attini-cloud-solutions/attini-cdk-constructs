@@ -28,6 +28,10 @@ export class AttiniCdk extends AttiniTask {
     if (this.props.buildCommands) {
       copy.build = this.props.buildCommands;
     }
+
+    if (this.props.diff) {
+      copy.diff = PropsUtil.fixCase(this.props.diff);
+    }
     return { Properties: FieldUtils.renderObject(PropsUtil.fixCase(copy)) };
   }
 
@@ -105,6 +109,21 @@ export interface AttiniCdkProps {
    */
   readonly roleArn?: string;
 
+  /**
+   * Configure if you want Attini to perform a diff check on the CDK app before any changes are applied.
+   * If there are any changes performed on the CDK app, then manual approval will be required before the changes
+   * are applied.
+   */
+  readonly diff?: DiffProps;
+
+}
+
+export interface DiffProps {
+
+  /**
+   * Enable diff
+   */
+  readonly enabled: boolean;
 }
 
 export interface StackConfigurationProps {
