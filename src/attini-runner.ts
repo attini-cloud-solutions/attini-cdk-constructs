@@ -7,7 +7,7 @@ export interface AttiniRunnerProps {
   /**
    * Fargate ECS task definition that the Attini Runner should use.
    *
-   * If omitted then Attini will use its default task definition.
+   * If omitted, then Attini will use its default task definition.
    */
   readonly taskDefinitionArn?: string;
 
@@ -55,6 +55,34 @@ export interface AttiniRunnerProps {
    * Runner startup configuration.
    */
   readonly startup?: Startup;
+
+  /**
+   * Configures an EC2 instance to host the Runner ECS task.
+   * By default, Attini Runners use Fargate, but you can use EC2 instead.
+   * This is useful if you want to start a container from the ECS container, which is currently not possible with Fargate.
+   */
+  readonly ec2Configuration?: Ec2Configuration;
+}
+
+export interface Ec2Configuration {
+  /**
+   * The instance type of the EC2 instance that will host the Runner.
+   */
+  readonly instanceType: string;
+
+  /**
+   * The instance profile name for the EC2 instance. If omitted, then Attini will create
+   * an instance profile with the Runners default role.
+   */
+  readonly instanceProfileName?: string;
+
+  /**
+   * The AMI to use. Can be specified as an imageId, starting with "ami-", or a short hand name like, AmazonLinux2, AmazonLinux2_arm64 etc.
+   * For a complete list, please see the documentation.
+   *
+   * Will default to AmazonLinux2
+   */
+  readonly ami?: string;
 }
 
 export interface RunnerConfiguration {
@@ -146,7 +174,7 @@ export class AttiniRunner extends Construct {
       copy.awsVpcConfiguration.securityGroups = props.awsVpcConfiguration.securityGroups.join(',');
     }
     if (props.awsVpcConfiguration?.assignPublicIp) {
-      copy.awsVpcConfiguration.assignPublicIp = props.awsVpcConfiguration?.assignPublicIp ? 'ENABLED': 'DISABLED';
+      copy.awsVpcConfiguration.assignPublicIp = props.awsVpcConfiguration?.assignPublicIp ? 'ENABLED' : 'DISABLED';
     }
 
     if (props.awsVpcConfiguration) {
@@ -155,6 +183,10 @@ export class AttiniRunner extends Construct {
 
     if (props.runnerConfiguration) {
       copy.runnerConfiguration = PropsUtil.fixCase(copy.runnerConfiguration);
+    }
+
+    if (props.ec2Configuration) {
+      copy.ec2Configuration = PropsUtil.fixCase(copy.ec2Configuration);
     }
 
     if (props.startup) {
