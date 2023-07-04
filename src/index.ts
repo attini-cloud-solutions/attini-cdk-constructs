@@ -33,6 +33,28 @@ export class DeploymentPlan extends Construct {
 
 }
 
+export interface AppDeploymentPlanProps {
+  readonly definition: IChainable;
+  readonly name: string;
+}
+
+export class AppDeploymentPlan extends Construct {
+
+
+  constructor(scope: Construct, id: string, props: AppDeploymentPlanProps) {
+    super(scope, id);
+
+    new CfnResource(this, id, {
+      type: 'Attini::Deploy::AppDeploymentPlan',
+      properties: {
+        Name: props.name,
+        DeploymentPlan: new StateGraph(props.definition.startState, 'not important').toGraphJson(),
+      },
+    });
+  }
+
+}
+
 export class PropsUtil {
   static fixCase(props: any): object {
     let copy: any = {};
